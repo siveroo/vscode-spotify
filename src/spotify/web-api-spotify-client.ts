@@ -150,7 +150,7 @@ export class WebApiSpotifyClient implements SpotifyClient {
     @withApi()
     async volumeUp(api?: Api) {
         const volume = getState().playerState.volume || 0;
-        await api!.player.volume.put(Math.min(volume + 20, 100));
+        await api!.player.volume.put(Math.min(volume + 5, 100));
         this._queryStatusFunc();
     }
 
@@ -158,7 +158,7 @@ export class WebApiSpotifyClient implements SpotifyClient {
     @withApi()
     async volumeDown(api?: Api) {
         const volume = getState().playerState.volume || 0;
-        await api!.player.volume.put(Math.max(volume - 20, 0));
+        await api!.player.volume.put(Math.max(volume - 5, 0));
         this._queryStatusFunc();
     }
 
